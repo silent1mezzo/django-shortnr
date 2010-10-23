@@ -1,0 +1,13 @@
+{% extends 'shortnr/base.html' %}
+
+{% block content %}
+    {% if shortened_url %}
+        Here's you're shortened url: <a href='{{ shortened_url }}' target='_blank'>{{ shortened_url }}</a>
+    {% endif %}
+    <form method='post' action='{% url shorten_url %}'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Shorten!' />
+    </form>
+
+{% endblock %}
