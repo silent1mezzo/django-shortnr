@@ -9,9 +9,9 @@ Here's a list of features
 
 #. Keeps tracks of the shortened url usage
 
-Upcomming Features
+#. Ability to store URLs and view them afterwards
 
-#. Ability to store urls if your logged in
+#. URLs are reused if user is authenticated and has already shortened the url, or if the user isn't authenticated
 
 Again, this has been done, and probably been done better elsewhere. I was just bored...
 
