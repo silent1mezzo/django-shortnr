@@ -14,6 +14,19 @@ def shorten_url(request, template_name='shortnr/index.html', reverse_url='shorte
     if request.POST:
         form = ShortenerForm(request.POST)
         if form.is_valid():
+            try:
+                url = ShortenedUrl.objects.get(url=form.cleaned_data['url'])
+                if (url.user is None and request.user.is_authenticated() == False) or (url.user == request.user): 
+                    dict['shortened_url'] = url.short_url
+                    dict['form'] = ShortenerForm()
+                    return render_to_response(
+                        template_name,
+                        dict,
+                        context,
+                    )
+                        
+            except:
+                print form.cleaned_data['url']
             url = form.save(commit=False)
             if request.user.is_authenticated():
                 url.user = request.user
