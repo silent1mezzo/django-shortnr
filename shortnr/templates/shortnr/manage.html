@@ -1,1 +1,20 @@
 {% extends 'shortnr/base.html' %}
+
+{% block content %}
+	<table>
+		<thead>
+			<th>Full URL</th>
+			<th>Shortened URL</th>
+			<th># of Clicks</th>
+		</thead>
+		<tbody>
+			{% for url in urls %}
+				<tr>
+					<td><a href='{{ url.url }}'>{{ url.url }}</a></td>
+					<td><a href='{{ url.short_url }}'>{{ url.short_url }}</a></td>
+					<td>{{ url.clicks }}</td>
+				</tr>
+			{% endfor %}
+		</tbody
+	</tabel>
+{% endblock %}

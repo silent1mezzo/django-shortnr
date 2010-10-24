@@ -44,7 +44,7 @@ def manage_urls(request, template_name='shortnr/manage.html'):
     context = RequestContext(request)
     dict = {}    
     
-    dict['urls'] = ShortenedUrls.objects.filter(user=request.user)
+    dict['urls'] = ShortenedUrl.objects.filter(user=request.user)
     
     return render_to_response(
         template_name,
